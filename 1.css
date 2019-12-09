@@ -1,5 +1,59 @@
 *{margin: 0; padding: 0;}
 
+.tt a.btn.btn-primary {
+    background: #000;
+    border-radius: unset;
+    text-transform: uppercase;
+    width: 118px;
+    border: none;
+}
+
+.tt p {font-size: 16px;width: 46%;margin: auto;margin-bottom: 34px;line-height: 23px;}
+
+.tt h2 {
+    font-size: 40px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+.tt img {
+    border-radius: 50%;
+    margin-bottom: 50px;
+}
+
+.tt {
+    z-index: 2;
+    position: relative;
+    padding-top: 140px;
+}
+
+a.navbar-brand {
+	padding: 0;
+}
+
+body,html {
+	width: 100%;
+	height: 100%;
+}
+
+.khoitt1 {
+	width: 100%;
+	height: 100%;
+	background: #e9585f;
+	position: relative;
+}
+
+.khoitt1::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	background: #e5565c;
+}
+
 a.nav-link {
 	color: #121212;
 	text-transform: uppercase;
