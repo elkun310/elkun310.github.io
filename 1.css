@@ -1,31 +1,31 @@
 *{margin: 0; padding: 0;}
 
 .tt a.btn.btn-primary {
-    background: #000;
-    border-radius: unset;
-    text-transform: uppercase;
-    width: 118px;
-    border: none;
+	background: #000;
+	border-radius: unset;
+	text-transform: uppercase;
+	width: 118px;
+	border: none;
 }
 
 .tt p {font-size: 16px;width: 46%;margin: auto;margin-bottom: 34px;line-height: 23px;}
 
 .tt h2 {
-    font-size: 40px;
-    text-transform: uppercase;
-    color: #fff;
-    margin-bottom: 40px;
+	font-size: 40px;
+	text-transform: uppercase;
+	color: #fff;
+	margin-bottom: 40px;
 }
 
 .tt img {
-    border-radius: 50%;
-    margin-bottom: 50px;
+	border-radius: 50%;
+	margin-bottom: 50px;
 }
 
 .tt {
-    z-index: 2;
-    position: relative;
-    padding-top: 140px;
+	z-index: 2;
+	position: relative;
+	padding-top: 140px;
 }
 
 a.navbar-brand {
@@ -82,8 +82,22 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-faded {
 		
 	}
 
+	.tt h2 {
+		font-size: 31px;
+	}
+
+	.tt img {
+		width: 150px;
+		margin-top: 110px;
+	}
 	ul.navbar-nav.mr-auto.float-xs-right {
 		text-align: center;
+		background: #fff;
+		margin: 0;
+		width: 109%;
+		padding: 10px 19px;
+		margin-right: -14px;
+		border-top: 1px solid #ccc;
 	}
 
 	a.nav-link {
