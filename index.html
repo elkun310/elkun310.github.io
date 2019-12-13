@@ -139,7 +139,10 @@
 		}
 		if (Notification.permission == 'granted') {
 			navigator.serviceWorker.getRegistration().then(function(reg) {
-				reg.demo();
+				function demo2(){
+					alert('vvvvv');
+				}
+				reg.demo2();
 			})
 		}
 	</script>
