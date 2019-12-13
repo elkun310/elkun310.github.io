@@ -129,7 +129,7 @@
 					cluster: 'ap1'
 				});
 				var channel = pusher.subscribe('my-channel');
-				Push.create(data.name,{
+				reg.Push.create(data.name,{
 					body: data.message,
 					icon: 'images/logo-small.jpg',
 					timeout: 5000,
