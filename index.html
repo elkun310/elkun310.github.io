@@ -102,7 +102,7 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			let promise = Notification.requestPermission();
-
+		})
 		// var pusher = new Pusher('726f4534d962542caa20', {
 		// 	cluster: 'ap1'
 		// });
@@ -127,7 +127,7 @@
 				var channel = pusher.subscribe('my-channel');
 				channel.bind('my-event', function(data) {
 				// alert('An event was triggered with message: ' + data.message);
-				Push.create(data.name,{
+				reg.Push.create(data.name,{
 					body: data.message,
 					icon: 'images/logo-small.jpg',
 					timeout: 5000,
@@ -139,27 +139,26 @@
 			});
 			});
 		}
-	})
-</script>
-<script type="text/javascript">
-	if ('serviceWorker' in navigator) {
-		navigator.serviceWorker.register('/js/worker.js', { scope: '/js/' }).then(function(reg) {
+	</script>
+	<script type="text/javascript">
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('/js/worker.js', { scope: '/js/' }).then(function(reg) {
 
-			if(reg.installing) {
-				console.log('Service worker installing');
-			} else if(reg.waiting) {
-				console.log('Service worker installed');
-			} else if(reg.active) {
-				console.log('Service worker active');
-			}
+				if(reg.installing) {
+					console.log('Service worker installing');
+				} else if(reg.waiting) {
+					console.log('Service worker installed');
+				} else if(reg.active) {
+					console.log('Service worker active');
+				}
 
-		}).catch(function(error) {
+			}).catch(function(error) {
     // registration failed
     console.log('Registration failed with ' + error);
 });
-	}
+		}
 
-</script>
+	</script>
 
 </body>
 </html>
