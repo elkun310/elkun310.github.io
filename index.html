@@ -109,26 +109,21 @@
 		var channel = pusher.subscribe('my-channel');
 		channel.bind('my-event', function(data) {
 			// alert('An event was triggered with message: ' + data.message);
-			// navigator.serviceWorker.getRegistration().then(function(reg) {
-		 //      alert('aaaa');
-		 //    });
-			navigator.serviceWorker.ready.then(function(reg){
-					reg.Push.create(data.name,{
-					body: data.message,
-					icon: 'images/logo-small.jpg',
-					timeout: 5000,
-					onClick: function () {
-						window.focus();
-						this.close();
-					}
-				});
+			Push.create(data.name,{
+				body: data.message,
+				icon: 'images/logo-small.jpg',
+				timeout: 5000,
+				onClick: function () {
+					window.focus();
+					this.close();
+				}
 			});
-			
 		});
 	</script>
 	<script type="text/javascript">
 		if ('serviceWorker' in navigator) {
-			navigator.serviceWorker.register('/test-noti/worker.js', { scope: '/test-noti/' }).then(function(reg) {
+			navigator.serviceWorker.register('/js/worker.js', { scope: '/js/' }).then(function(reg) {
+
 				if(reg.installing) {
 					console.log('Service worker installing');
 				} else if(reg.waiting) {
@@ -138,9 +133,9 @@
 				}
 
 			}).catch(function(error) {
-		    // registration failed
-		    console.log('Registration failed with ' + error);
-		});
+    // registration failed
+    console.log('Registration failed with ' + error);
+});
 		}
 
 	</script>
