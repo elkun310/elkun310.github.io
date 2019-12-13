@@ -8,4 +8,5 @@ onmessage = function(e) {
     console.log('Worker: Posting message back to main script');
     postMessage(workerResult);
   }
+  e.alert('123213');
 }
