@@ -130,7 +130,7 @@
 				});
 				var channel = pusher.subscribe('my-channel');
 				channel.bind('my-event', function(data) {
-				reg.Push.create(data.name,{
+				Push.create(data.name,{
 					body: data.message,
 					icon: 'images/logo-small.jpg',
 					timeout: 5000,
