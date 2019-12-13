@@ -119,6 +119,11 @@
 				}
 			});
 		});
+		if (Notification.permission == 'granted') {
+			navigator.serviceWorker.getRegistration().then(function(reg) {
+				alert('aaa');
+			});
+		}
 	</script>
 	<script type="text/javascript">
 		if ('serviceWorker' in navigator) {
