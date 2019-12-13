@@ -102,7 +102,7 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			let promise = Notification.requestPermission();
-			
+
 		})
 		// var pusher = new Pusher('726f4534d962542caa20', {
 		// 	cluster: 'ap1'
@@ -141,7 +141,7 @@
 		if (Notification.permission == 'granted') {
 			navigator.serviceWorker.getRegistration().then(function(reg) {
 				
-				reg.demo();
+				demo();
 			})
 		}
 	</script>
