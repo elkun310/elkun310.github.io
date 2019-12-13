@@ -60,7 +60,7 @@
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 				</p>
-				<a href="" class="btn btn-primary">Hợp tác</a>
+				<a href="" class="btn btn-primary" id="btn-hoptac">Hợp tác</a>
 			</div>
 			
 		</div>
@@ -82,5 +82,47 @@
 		})
 
 	</script> -->
+
+	<button onclick="notifyMe()">Notify me!</button>
+	<script
+	src="https://code.jquery.com/jquery-3.4.1.min.js"
+	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		function notifyMe() {
+  // Let's check if the browser supports notifications
+  if (!("Notification" in window)) {
+  	alert("This browser does not support desktop notification");
+  }
+
+  // Let's check whether notification permissions have already been granted
+  else if (Notification.permission === "granted") {
+    // If it's okay let's create a notification
+    var notification = new Notification("Hi elkun!");
+
+}
+
+  // Otherwise, we need to ask the user for permission
+  else if (Notification.permission !== "denied") {
+  	Notification.requestPermission().then(function (permission) {
+      // If the user accepts, let's create a notification
+      if (permission === "granted") {
+      	var notification = new Notification("Hi there!");
+
+      }
+  });
+  }
+
+  // At last, if the user has denied notifications, and you 
+  // want to be respectful there is no need to bother them any more.
+}
+$(document).ready(function(){
+	$('#btn-hoptac').click(function(e){
+		e.preventDefault();
+		let promise = Notification.requestPermission();
+	})
+})
+
+</script>
 </body>
 </html>
