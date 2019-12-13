@@ -47,6 +47,7 @@ h2.tieudecap2 span.dam {
 	text-transform: uppercase;
 	padding-bottom: 30px;
 	padding-left: 25px;
+	text-align: center;
 }
 
 .tt a.btn.btn-primary {
@@ -130,6 +131,10 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-faded {
 	*{
 		
 	}
+
+h2.tieudecap2 {
+    margin-top: 40px;
+}
 
 	.tt h2 {
 		font-size: 31px;
