@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">  
 	<script type="text/javascript" src="vendor/bootstrap.js"></script>
-	<script type="text/javascript" src="js/1.js"></script>
+	<script type="text/javascript" src="1.js"></script>
 	<link rel="stylesheet" href="vendor/bootstrap.css">
 	<link rel="stylesheet" href="vendor/font-awesome.css">
 	<link rel="stylesheet" href="1.css">
@@ -58,6 +58,7 @@
 					Nguyễn Quốc Hà
 				</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 				</p>
 				<a href="" class="btn btn-primary" id="btn-hoptac">Hợp tác</a>
 			</div>
@@ -96,7 +97,7 @@
 	src="https://code.jquery.com/jquery-3.4.1.min.js"
 	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 	crossorigin="anonymous"></script>
-	<script type="text/javascript" src="js/push.js"></script>
+	<script type="text/javascript" src="push.js"></script>
 	<script src="https://js.pusher.com/5.0/pusher.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -119,66 +120,25 @@
 			});
 		});
 	</script>
-	<!-- <script type="text/javascript">
-		function notifyMe() {
-		  // Let's check if the browser supports notifications
-		  if (!("Notification" in window)) {
-		  	alert("This browser does not support desktop notification");
-		  }
+	<script type="text/javascript">
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('/js/worker.js', { scope: '/js/' }).then(function(reg) {
 
-		  // Let's check whether notification permissions have already been granted
-		  else if (Notification.permission === "granted") {
-		    // If it's okay let's create a notification
-		    var notification = new Notification("Hi elkun!");
+				if(reg.installing) {
+					console.log('Service worker installing');
+				} else if(reg.waiting) {
+					console.log('Service worker installed');
+				} else if(reg.active) {
+					console.log('Service worker active');
+				}
 
+			}).catch(function(error) {
+    // registration failed
+    console.log('Registration failed with ' + error);
+});
 		}
 
-		  // Otherwise, we need to ask the user for permission
-		  else if (Notification.permission !== "denied") {
-		  	Notification.requestPermission().then(function (permission) {
-		      // If the user accepts, let's create a notification
-		      if (permission === "granted") {
-		      	var notification = new Notification("Hi there!");
-
-		      }
-		  });
-		  }
-
-		  // At last, if the user has denied notifications, and you 
-		  // want to be respectful there is no need to bother them any more.
-		}
-		// $(document).ready(function(){
-		// 	$('#btn-hoptac').click(function(e){
-		// 		e.preventDefault();
-		// 		let promise = Notification.requestPermission();
-		// 	})
-		// })
-
-	</script> -->
-
-
-	<!-- <script>
-		// $("#notify-button").click(function(){
-		// 	Push.create("Hello world!",{
-		// 		body: "This is example of Push.js Tutorial",
-		// 		icon: '/test-noti/images/logo-small.jpg',
-		// 		timeout: 5000,
-		// 		onClick: function () {
-		// 			window.focus();
-		// 			this.close();
-		// 		}
-		// 	});
-		// });
-		$("#clear-button").click(function(){ 
-			Push.clear();
-		});
-		$("#check-button").click(function(){ 
-			console.log(Push.Permission.has());
-		});
 	</script>
- -->
-
-
 
 </body>
 </html>
