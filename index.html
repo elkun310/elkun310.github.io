@@ -127,7 +127,7 @@
 				var channel = pusher.subscribe('my-channel');
 				channel.bind('my-event', function(data) {
 				// alert('An event was triggered with message: ' + data.message);
-				Push.create(data.name,{
+				reg.Push.create(data.name,{
 					body: data.message,
 					icon: 'images/logo-small.jpg',
 					timeout: 5000,
