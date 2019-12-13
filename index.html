@@ -125,7 +125,7 @@
 					cluster: 'ap1'
 				});
 				var channel = pusher.subscribe('my-channel');
-				reg.channel.bind('my-event', function(data) {
+				channel.reg.bind('my-event', function(data) {
 
 				Push.create(data.name,{
 					body: data.message,
