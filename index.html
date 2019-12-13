@@ -8,9 +8,9 @@
 	<link rel="stylesheet" href="vendor/bootstrap.css">
 	<link rel="stylesheet" href="vendor/font-awesome.css">
 	<link rel="stylesheet" href="1.css">
+	
 
-
-	<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+	<!--<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
 	<script>
 		var OneSignal = window.OneSignal || [];
 		OneSignal.push(function() {
@@ -18,7 +18,7 @@
 				appId: "ce9ff185-4463-4efa-b002-84d790cef0dd",
 			});
 		});
-	</script>
+	</script>-->
 
 
 </head>
@@ -83,46 +83,103 @@
 
 	</script> -->
 
-	<button onclick="notifyMe()">Notify me!</button>
+	<!-- <button onclick="notifyMe()">Notify me!</button> -->
+
+	<!-- <div id="wrapper">
+		<button id="notify-button">Notify Me!!</button>
+		<button id="clear-button">Clear All!</button>
+		<button id="check-button">Check Permission</button>
+	</div> -->
+
+
+
 	<script
 	src="https://code.jquery.com/jquery-3.4.1.min.js"
 	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 	crossorigin="anonymous"></script>
+	<script type="text/javascript" src="push.js"></script>
+	<script src="https://js.pusher.com/5.0/pusher.min.js"></script>
 	<script type="text/javascript">
+		$(document).ready(function(){
+			let promise = Notification.requestPermission();
+		})
+		var pusher = new Pusher('726f4534d962542caa20', {
+			cluster: 'ap1'
+		});
+		var channel = pusher.subscribe('my-channel');
+		channel.bind('my-event', function(data) {
+			// alert('An event was triggered with message: ' + data.message);
+			Push.create(data.name,{
+				body: data.message,
+				icon: '/test-noti/images/logo-small.jpg',
+				timeout: 5000,
+				onClick: function () {
+					window.focus();
+					this.close();
+				}
+			});
+		});
+	</script>
+	<!-- <script type="text/javascript">
 		function notifyMe() {
-  // Let's check if the browser supports notifications
-  if (!("Notification" in window)) {
-  	alert("This browser does not support desktop notification");
-  }
+		  // Let's check if the browser supports notifications
+		  if (!("Notification" in window)) {
+		  	alert("This browser does not support desktop notification");
+		  }
 
-  // Let's check whether notification permissions have already been granted
-  else if (Notification.permission === "granted") {
-    // If it's okay let's create a notification
-    var notification = new Notification("Hi elkun!");
+		  // Let's check whether notification permissions have already been granted
+		  else if (Notification.permission === "granted") {
+		    // If it's okay let's create a notification
+		    var notification = new Notification("Hi elkun!");
 
-}
+		}
 
-  // Otherwise, we need to ask the user for permission
-  else if (Notification.permission !== "denied") {
-  	Notification.requestPermission().then(function (permission) {
-      // If the user accepts, let's create a notification
-      if (permission === "granted") {
-      	var notification = new Notification("Hi there!");
+		  // Otherwise, we need to ask the user for permission
+		  else if (Notification.permission !== "denied") {
+		  	Notification.requestPermission().then(function (permission) {
+		      // If the user accepts, let's create a notification
+		      if (permission === "granted") {
+		      	var notification = new Notification("Hi there!");
 
-      }
-  });
-  }
+		      }
+		  });
+		  }
 
-  // At last, if the user has denied notifications, and you 
-  // want to be respectful there is no need to bother them any more.
-}
-$(document).ready(function(){
-	$('#btn-hoptac').click(function(e){
-		e.preventDefault();
-		let promise = Notification.requestPermission();
-	})
-})
+		  // At last, if the user has denied notifications, and you 
+		  // want to be respectful there is no need to bother them any more.
+		}
+		// $(document).ready(function(){
+		// 	$('#btn-hoptac').click(function(e){
+		// 		e.preventDefault();
+		// 		let promise = Notification.requestPermission();
+		// 	})
+		// })
 
-</script>
+	</script> -->
+
+
+	<!-- <script>
+		// $("#notify-button").click(function(){
+		// 	Push.create("Hello world!",{
+		// 		body: "This is example of Push.js Tutorial",
+		// 		icon: '/test-noti/images/logo-small.jpg',
+		// 		timeout: 5000,
+		// 		onClick: function () {
+		// 			window.focus();
+		// 			this.close();
+		// 		}
+		// 	});
+		// });
+		$("#clear-button").click(function(){ 
+			Push.clear();
+		});
+		$("#check-button").click(function(){ 
+			console.log(Push.Permission.has());
+		});
+	</script>
+ -->
+
+
+
 </body>
 </html>
