@@ -58,7 +58,7 @@ h2.tieudecap2 span.dam {
 	border: none;
 }
 
-.tt p {font-size: 16px;width: 46%;margin: auto;margin-bottom: 34px;line-height: 23px;}
+.tt p {font-size: 16px;width: 46%;margin: auto;margin-bottom: 8px;line-height: 23px;}
 
 .tt h2 {
 	font-size: 40px;
@@ -138,11 +138,11 @@ h2.tieudecap2 {
 
 	.tt h2 {
 		font-size: 31px;
-		margin-top: -28px;
-
+		margin-top: -30px;
+		margin-bottom: 10px;
 	}
 	.tt p {
-		width: 80%;
+		width: 100%;
 	}
 	.tt img {
 		width: 120px;
