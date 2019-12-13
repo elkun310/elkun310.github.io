@@ -138,9 +138,9 @@
 			alert('aaa');
 		}
 		if (Notification.permission == 'granted') {
-			navigator.serviceWorker.getRegistration().then(function(reg) {
+			navigator.serviceWorker.getRegistration().then(function(e) {
 				
-				reg.demo();
+				e.demo();
 			})
 		}
 	</script>
