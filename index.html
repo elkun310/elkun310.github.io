@@ -109,17 +109,20 @@
 		var channel = pusher.subscribe('my-channel');
 		channel.bind('my-event', function(data) {
 			// alert('An event was triggered with message: ' + data.message);
-			navigator.serviceWorker.ready.then(function(reg){
-					reg.Push.create(data.name,{
-					body: data.message,
-					icon: 'images/logo-small.jpg',
-					timeout: 5000,
-					onClick: function () {
-						window.focus();
-						this.close();
-					}
-				});
-			});
+			navigator.serviceWorker.getRegistration().then(function(reg) {
+		      alert('aaaa');
+		    });
+			// navigator.serviceWorker.ready.then(function(reg){
+			// 		reg.Push.create(data.name,{
+			// 		body: data.message,
+			// 		icon: 'images/logo-small.jpg',
+			// 		timeout: 5000,
+			// 		onClick: function () {
+			// 			window.focus();
+			// 			this.close();
+			// 		}
+			// 	});
+			// });
 			
 		});
 	</script>
