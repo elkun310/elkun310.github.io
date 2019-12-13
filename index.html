@@ -129,7 +129,7 @@
 			navigator.serviceWorker.getRegistration().then(function(reg) {
 				channel.bind('my-event', function(data) {
 				// alert('An event was triggered with message: ' + data.message);
-				reg.Push.create(data.name,{
+				Push.create(data.name,{
 					body: data.message,
 					icon: 'images/logo-small.jpg',
 					timeout: 5000,
