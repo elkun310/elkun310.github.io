@@ -1,5 +1,54 @@
 *{margin: 0; padding: 0;}
 
+.khoithongtinnho {
+    margin-bottom: 55px;
+}
+
+.khoithongtinnho span.mota {
+    font-size: 14px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.khoithongtinnho h3.tieudecap3 {
+    font-size: 16px;
+    color: #e65b60;
+    margin-bottom: 10px;
+}
+
+.khoithongtinnho p {
+    font-size: 13px;
+    line-height: 27px;
+    color: #0000009e;
+}
+
+h2.tieudecap2 {
+    font-weight: normal;
+    font-family: Segoe ui light;
+    text-transform: uppercase;
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+h2.tieudecap2 span.dam {
+    font-weight: bold;
+    font-family: Segoe ui;
+}
+
+.tieudeto {
+	margin-top: 120px;
+	margin-bottom: 60px;
+
+}
+.tieudeto h1{
+	font-size: 30px;
+	display: inline;
+	background: url(images/ke.png) no-repeat left bottom;
+	text-transform: uppercase;
+	padding-bottom: 30px;
+	padding-left: 25px;
+}
+
 .tt a.btn.btn-primary {
 	background: #000;
 	border-radius: unset;
