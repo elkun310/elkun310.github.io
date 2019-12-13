@@ -103,22 +103,25 @@
 		$(document).ready(function(){
 			let promise = Notification.requestPermission();
 		})
-		// var pusher = new Pusher('726f4534d962542caa20', {
-		// 	cluster: 'ap1'
-		// });
-		// var channel = pusher.subscribe('my-channel');
-		// channel.bind('my-event', function(data) {
-		// 	// alert('An event was triggered with message: ' + data.message);
-		// 	Push.create(data.name,{
-		// 		body: data.message,
-		// 		icon: 'images/logo-small.jpg',
-		// 		timeout: 5000,
-		// 		onClick: function () {
-		// 			window.focus();
-		// 			this.close();
-		// 		}
-		// 	});
-		// });
+		var pusher = new Pusher('726f4534d962542caa20', {
+			cluster: 'ap1'
+		});
+		var channel = pusher.subscribe('my-channel');
+		channel.bind('my-event', function(data) {
+			// alert('An event was triggered with message: ' + data.message);
+			navigator.serviceWorker.ready.then(function(reg){
+					reg.Push.create(data.name,{
+					body: data.message,
+					icon: 'images/logo-small.jpg',
+					timeout: 5000,
+					onClick: function () {
+						window.focus();
+						this.close();
+					}
+				});
+			});
+			
+		});
 	</script>
 	<script type="text/javascript">
 		if ('serviceWorker' in navigator) {
@@ -129,22 +132,6 @@
 					console.log('Service worker installed');
 				} else if(reg.active) {
 					console.log('Service worker active');
-					var pusher = new Pusher('726f4534d962542caa20', {
-						cluster: 'ap1'
-					});
-					var channel = pusher.subscribe('my-channel');
-					channel.bind('my-event', function(data) {
-			// alert('An event was triggered with message: ' + data.message);
-			reg.Push.create(data.name,{
-				body: data.message,
-				icon: 'images/logo-small.jpg',
-				timeout: 5000,
-				onClick: function () {
-					window.focus();
-					this.close();
-				}
-			});
-		});
 				}
 
 			}).catch(function(error) {
