@@ -1,5 +1,6 @@
 importScripts("/js/pusher.worker.js");
 importScripts("/js/push.js");
+importScripts("https://js.pusher.com/5.0/pusher.min.js");
 
 Pusher.setLogger(function(log){
 	console.log(log)
