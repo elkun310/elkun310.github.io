@@ -191,7 +191,7 @@
 		// 	.register('/js/sw.js')
 		// 	.then(function() { console.log("Service Worker Registered"); });
 		// }
-		
+
 		$(document).ready(function(){
 			//let promise = Notification.requestPermission();
 
@@ -234,6 +234,17 @@
 		}
 		navigator.serviceWorker.ready.then(function(regi){
 			regi.demo();
+
+			const myWorker = new Worker("js/worker.js");
+
+			myWorker.onmessage = function(e) {
+				result.textContent = e.data;
+				console.log('Message received from worker');
+			}
+
+
+
+
 			// alert('aaa1');
 		// 	var pusher = new Pusher('726f4534d962542caa20', {
 		// 		cluster: 'ap1'
