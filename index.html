@@ -274,8 +274,15 @@
 				// 		});
 				// 	});
 				// }
-				event.demo();
-				alert('push');
+				event.Push.create(data.name,{
+					body: data.message,
+					icon: 'images/logo-small.jpg',
+					timeout: 10000,
+					onClick: function () {
+						window.focus();
+						this.close();
+					}
+				});
 			})
 	}
 </script>
