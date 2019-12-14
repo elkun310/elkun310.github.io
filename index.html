@@ -186,11 +186,7 @@
 	<script src="https://js.pusher.com/5.0/pusher.min.js"></script>
 	<script type="text/javascript">
 		//navigator.serviceWorker.register('/js/worker.js');
-		// if('serviceWorker' in navigator) {
-		// 	navigator.serviceWorker
-		// 	.register('/js/sw.js')
-		// 	.then(function() { console.log("Service Worker Registered"); });
-		// }
+
 
 		$(document).ready(function(){
 			let promise = Notification.requestPermission();
@@ -232,26 +228,6 @@
 		// 	});
 		// 	alert('push');
 		// }
-	// 	navigator.serviceWorker.ready.then(function(regi){
-	// 		//demo();
-	// 		// var pusher = new Pusher('726f4534d962542caa20', {
-	// 		// 	cluster: 'ap1'
-	// 		// });
-	// 		// var channel = pusher.subscribe('my-channel');
-	// 		// channel.bind('my-event', function(data) {
-	// 		// 	Push.create(data.name,{
-	// 		// 		body: data.message,
-	// 		// 		icon: 'images/logo-small.jpg',
-	// 		// 		timeout: 10000,
-	// 		// 		onClick: function () {
-	// 		// 			window.focus();
-	// 		// 			this.close();
-	// 		// 		}
-	// 		// 	});
-	// 		// });
-	// 		alert('aaabbb2');
-	// });
-
 	if (Notification.permission == 'granted') {
 		navigator.serviceWorker.getRegistration().then(function(event) {
 				// alert('1234');
@@ -269,7 +245,7 @@
 					cluster: 'ap1'
 				});
 				var channel = pusher.subscribe('my-channel');
-				channel.bind('my-event', function(data) {
+				event.channel.bind('my-event', function(data) {
 					Push.create(data.name,{
 						body: data.message,
 						icon: 'images/logo-small.jpg',
