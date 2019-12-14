@@ -249,35 +249,14 @@
 			// 		}
 			// 	});
 			// });
-			regi.alert('aaabbb');
-
-
-
-
-			// alert('aaa1');
-		// 	var pusher = new Pusher('726f4534d962542caa20', {
-		// 		cluster: 'ap1'
-		// 	});
-		// 	var channel = pusher.subscribe('my-channel');
-		// 	channel.bind('my-event', function(data) {
-		// 	// alert('An event was triggered with message: ' + data.message);
-		// 	Push.create(data.name,{
-		// 		body: data.message,
-		// 		icon: 'images/logo-small.jpg',
-		// 		timeout: 5000,
-		// 		onClick: function () {
-		// 			window.focus();
-		// 			this.close();
-		// 		}
-		// 	});
-		// });
+			alert('aaabbb2');
 	});
 
-		// if (Notification.permission == 'granted') {
-		// 	navigator.serviceWorker.getRegistration().then(function(reg) {
-		// 		reg.demo();
-		// 	})
-		// }
+		if (Notification.permission == 'granted') {
+			navigator.serviceWorker.getRegistration().then(function(reg) {
+				alert('1234');
+			})
+		}
 	</script>
 	<script type="text/javascript">
 		if ('serviceWorker' in navigator) {
