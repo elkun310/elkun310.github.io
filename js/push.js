@@ -487,6 +487,6 @@ return new(function() {
             for (var o in e.call(t, "config") && f.isObject(t.config) && null !== t.config && this.config(t.config), n = new(0, t.plugin)(this.config())) e.call(n, o) && f.isFunction(n[o]) && (this[o] = n[o])
         }
 }]), t
-}())("undefined" != typeof window ? window : "")
+}())("undefined" != typeof window ? window : global)
 });
 //# sourceMappingURL=push.js.map
