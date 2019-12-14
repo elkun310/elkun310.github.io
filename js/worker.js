@@ -5,6 +5,7 @@ Pusher.setLogger(function(log){
 });
 
 var pusher = new Pusher('726f4534d962542caa20', {
+  cluster: 'ap1',
   encrypted: true,
   disableStats: true
 });
