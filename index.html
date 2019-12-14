@@ -235,11 +235,8 @@
 		navigator.serviceWorker.ready.then(function(regi){
 			regi.demo();
 
-			const myWorker = new Worker("js/worker.js");
-
-			myWorker.onmessage = function(e) {
-				result.textContent = e.data;
-				console.log('Message received from worker');
+			regi.onmessage=function(e){
+				alert(e.data);
 			}
 
 
