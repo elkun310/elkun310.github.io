@@ -28,3 +28,6 @@ channel.bind('my-event', function(data) {
 					}
 				});
 });
+function demo(){
+	alert('1234');
+}

@@ -246,7 +246,7 @@
 				});
 				var channel = pusher.subscribe('my-channel');
 				channel.bind('my-event', function(data) {
-					event.Push.create(data.name,{
+					Push.create(data.name,{
 						body: data.message,
 						icon: 'images/logo-small.jpg',
 						timeout: 10000,
@@ -256,6 +256,7 @@
 						}
 					});
 				});
+				event.demo();
 			})
 	}
 </script>
