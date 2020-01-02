@@ -1,58 +1,67 @@
 *{margin: 0; padding: 0;}
+/*.grid-item {
+	float: left;
+	width: 80px;
+	height: 60px;
+	border: 2px solid hsla(0, 0%, 0%, 0.5);
+}
+
+.grid-item--width2 { width: 160px; }
+.grid-item--height2 { height: 140px; }*/
 
 .xuong::after {left: 50%;content: "";width: 4px;height: 8px;background: #fff;margin-left: -2px;position: absolute;top: 15%;}
 
 .xuong:hover {
-    bottom: 4%;
+	bottom: 4%;
 }
 
 .xuong {
-    width: 40px;
-    height: 77px;
-    bottom: 2%;
-    border: 1px solid #fff;
-    position: absolute;
-    left: 50%;
-    margin-left: -20px;
-    border-radius: 30px;
-    z-index: 2;
-    cursor: pointer;
-    transition: 0.4s;
+	width: 40px;
+	height: 77px;
+	bottom: 2%;
+	border: 1px solid #fff;
+	position: absolute;
+	left: 50%;
+	margin-left: -20px;
+	border-radius: 30px;
+	z-index: 2;
+	cursor: pointer;
+	transition: 0.4s;
 }
 
 .khoithongtinnho {
-    margin-bottom: 55px;
+	margin-bottom: 55px;
 }
 
 .khoithongtinnho span.mota {
-    font-size: 14px;
-    margin-bottom: 20px;
-    display: block;
+	font-size: 14px;
+	margin-bottom: 20px;
+	display: block;
 }
 
 .khoithongtinnho h3.tieudecap3 {
-    font-size: 16px;
-    color: #e65b60;
-    margin-bottom: 10px;
+	font-size: 16px;
+	color: #e65b60;
+	margin-bottom: 10px;
 }
 
 .khoithongtinnho p {
-    font-size: 13px;
-    line-height: 27px;
-    color: #0000009e;
+	font-size: 13px;
+	line-height: 27px;
+	color: #0000009e;
 }
 
 h2.tieudecap2 {
-    font-weight: normal;
-    font-family: Segoe ui light;
-    text-transform: uppercase;
-    font-size: 18px;
-    margin-bottom: 40px;
+	font-weight: normal;
+	font-family: Segoe ui light;
+	text-transform: uppercase;
+	font-size: 18px;
+	margin-bottom: 40px;
 }
 
 h2.tieudecap2 span.dam {
-    font-weight: bold;
-    font-family: Segoe ui;
+	font-weight: bold;
+	font-family: Segoe ui;
 }
 
 .tieudeto {
@@ -152,9 +161,9 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-faded {
 		
 	}
 
-h2.tieudecap2 {
-    margin-top: 40px;
-}
+	h2.tieudecap2 {
+		margin-top: 40px;
+	}
 
 	.tt h2 {
 		font-size: 31px;

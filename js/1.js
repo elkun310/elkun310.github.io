@@ -1,6 +1,6 @@
 ﻿ $(function(){
  	var vitriedu = $('.edu').offset().top;
- 	console.log(vitriedu);
+ 	// console.log(vitriedu);
  	$('.xuong').click(function(){
  		$('body,html').animate({scrollTop:vitriedu},500);
  	})
