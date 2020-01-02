@@ -214,7 +214,25 @@
 	crossorigin="anonymous"></script>
 	<script type="text/javascript" src="js/push.js"></script>
 	<script src="https://js.pusher.com/5.0/pusher.min.js"></script>
+	<script type="text/javascript">
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('/js/worker.js', { scope: '/js/' }).then(function(reg) {
 
+				if(reg.installing) {
+					console.log('Service worker installing');
+				} else if(reg.waiting) {
+					console.log('Service worker installed');
+				} else if(reg.active) {
+					console.log('Service worker active');
+				}
+
+			}).catch(function(error) {
+			    // registration failed
+			    console.log('Registration failed with ' + error);
+			});
+		}
+
+	</script>
 	<script type="text/javascript">
 		//navigator.serviceWorker.register('/js/worker.js');
 
@@ -273,25 +291,7 @@
 			})
 		}
 	</script>
-	<script type="text/javascript">
-		if ('serviceWorker' in navigator) {
-			navigator.serviceWorker.register('/js/worker.js', { scope: '/js/' }).then(function(reg) {
-
-				if(reg.installing) {
-					console.log('Service worker installing');
-				} else if(reg.waiting) {
-					console.log('Service worker installed');
-				} else if(reg.active) {
-					console.log('Service worker active');
-				}
-
-			}).catch(function(error) {
-			    // registration failed
-			    console.log('Registration failed with ' + error);
-			});
-		}
-
-	</script>
+	
 
 </body>
 </html>
