@@ -215,37 +215,14 @@
 	<script type="text/javascript" src="js/push.js"></script>
 	<script src="https://js.pusher.com/5.0/pusher.min.js"></script>
 
-
-	<!-- <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
-	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-	 -->
-
 	<script type="text/javascript">
 		//navigator.serviceWorker.register('/js/worker.js');
 
 
 		$(document).ready(function(){
-			//let promise = Notification.requestPermission();
+			let promise = Notification.requestPermission();
 
 		})
-		// var pusher = new Pusher('726f4534d962542caa20', {
-		// 	cluster: 'ap1'
-		// });
-		// var channel = pusher.subscribe('my-channel');
-		// channel.bind('my-event', function(data) {
-		// 	// alert('An event was triggered with message: ' + data.message);
-		// 	Push.create(data.name,{
-		// 		body: data.message,
-		// 		icon: 'images/logo-small.jpg',
-		// 		timeout: 5000,
-		// 		onClick: function () {
-		// 			window.focus();
-		// 			this.close();
-		// 		}
-		// 	});
-		// });
-		
-
 		// function demo(){
 		// 	var pusher = new Pusher('726f4534d962542caa20', {
 		// 		cluster: 'ap1'
@@ -266,8 +243,7 @@
 		// }
 		if (Notification.permission == 'granted') {
 			navigator.serviceWorker.getRegistration().then(function(event) {
-				// alert('1234');
-				// alert('1111');
+
 				// event.Push.create(data.name,{
 				// 	body: data.message,
 				// 	icon: 'images/logo-small.jpg',
