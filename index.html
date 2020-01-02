@@ -273,8 +273,8 @@
 				var pusher = new Pusher('726f4534d962542caa20', {
 					cluster: 'ap1'
 				});
-				console.log(pusher);
-				// alert(channel);
+				//console.log(pusher);
+				
 				var channel = pusher.subscribe('my-channel');
 				channel.bind('my-event', function(data) {
 					Push.create(data.name,{
@@ -287,7 +287,7 @@
 						}
 					});
 				});
-				
+				console.log(channel);
 			})
 		}
 	</script>
