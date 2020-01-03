@@ -217,50 +217,23 @@
 	<script type="text/javascript" src="js/push.js"></script>
 	<script src="https://js.pusher.com/5.0/pusher.min.js"></script>
 	<script type="text/javascript">
-		// if ('serviceWorker' in navigator) {
-		// 	navigator.serviceWorker.register('/js/worker.js', { scope: '/js/' }).then(function(reg) {
-
-		// 		if(reg.installing) {
-		// 			console.log('Service worker installing');
-		// 		} else if(reg.waiting) {
-		// 			console.log('Service worker installed');
-		// 		} else if(reg.active) {
-		// 			console.log('Service worker active');
-		// 		}
-
-		// 	}).catch(function(error) {
-		// 	    // registration failed
-		// 	    console.log('Registration failed with ' + error);
-		// 	});
-		// }
 		if ('serviceWorker' in navigator) {
-			navigator.serviceWorker.register('js/worker.js', {
-				scope: './js/'
-			}).then(function (registration) {
-				var serviceWorker;
-				if (registration.installing) {
-					serviceWorker = registration.installing;
-					document.querySelector('#kind').textContent = 'installing';
-				} else if (registration.waiting) {
-					serviceWorker = registration.waiting;
-					document.querySelector('#kind').textContent = 'waiting';
-				} else if (registration.active) {
-					serviceWorker = registration.active;
-					document.querySelector('#kind').textContent = 'active';
+			navigator.serviceWorker.register('/js/worker.js', { scope: '/js/' }).then(function(reg) {
+
+				if(reg.installing) {
+					console.log('Service worker installing');
+				} else if(reg.waiting) {
+					console.log('Service worker installed');
+				} else if(reg.active) {
+					console.log('Service worker active');
 				}
-				if (serviceWorker) {
-            // logState(serviceWorker.state);
-            serviceWorker.addEventListener('statechange', function (e) {
-                // logState(e.target.state);
-            });
-        }
-    }).catch (function (error) {
-        // Something went wrong during registration. The service-worker.js file
-        // might be unavailable or contain a syntax error.
-    });
-} else {
-    // The current browser doesn't support service workers.
-}
+
+			}).catch(function(error) {
+			    // registration failed
+			    console.log('Registration failed with ' + error);
+			});
+		}
+		
 </script>
 <script type="text/javascript">
 		//navigator.serviceWorker.register('/js/worker.js');
@@ -268,20 +241,20 @@
 			let promise = Notification.requestPermission();
 
 		})
-		function showNotification() {
-			Notification.requestPermission(function(result) {
-				if (result === 'granted') {
-					navigator.serviceWorker.ready.then(function(registration) {
-						registration.showNotification('Vibration Sample', {
-							body: 'Buzz! Buzz!',
-							icon: '../images/touch/chrome-touch-icon-192x192.png',
-							vibrate: [200, 100, 200, 100, 200, 100, 200],
-							tag: 'vibration-sample'
-						});
-					});
-				}
-			});
-		}
+		// function showNotification() {
+		// 	Notification.requestPermission(function(result) {
+		// 		if (result === 'granted') {
+		// 			navigator.serviceWorker.ready.then(function(registration) {
+		// 				registration.showNotification('Vibration Sample', {
+		// 					body: 'Buzz! Buzz!',
+		// 					icon: '../images/touch/chrome-touch-icon-192x192.png',
+		// 					vibrate: [200, 100, 200, 100, 200, 100, 200],
+		// 					tag: 'vibration-sample'
+		// 				});
+		// 			});
+		// 		}
+		// 	});
+		// }
 		// Use serviceWorker.ready to ensure that you can subscribe for push
 		navigator.serviceWorker.ready.then(
 			function(serviceWorkerRegistration) {
