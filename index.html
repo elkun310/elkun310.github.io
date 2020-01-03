@@ -217,22 +217,22 @@
 	<script type="text/javascript" src="js/push.js"></script>
 	<script src="https://js.pusher.com/5.0/pusher.min.js"></script>
 	<script type="text/javascript">
-		if ('serviceWorker' in navigator) {
-			navigator.serviceWorker.register('/js/worker.js', { scope: '/js/' }).then(function(reg) {
+		// if ('serviceWorker' in navigator) {
+		// 	navigator.serviceWorker.register('/js/worker.js', { scope: '/js/' }).then(function(reg) {
 
-				if(reg.installing) {
-					console.log('Service worker installing');
-				} else if(reg.waiting) {
-					console.log('Service worker installed');
-				} else if(reg.active) {
-					console.log('Service worker active');
-				}
+		// 		if(reg.installing) {
+		// 			console.log('Service worker installing');
+		// 		} else if(reg.waiting) {
+		// 			console.log('Service worker installed');
+		// 		} else if(reg.active) {
+		// 			console.log('Service worker active');
+		// 		}
 
-			}).catch(function(error) {
-			    // registration failed
-			    console.log('Registration failed with ' + error);
-			});
-		}
+		// 	}).catch(function(error) {
+		// 	    // registration failed
+		// 	    console.log('Registration failed with ' + error);
+		// 	});
+		// }
 		
 	</script>
 	<script type="text/javascript">
@@ -265,20 +265,20 @@
 			 //    }
 			 //    );
 
-			 var pusher = new Pusher('726f4534d962542caa20', {
-			 	cluster: 'ap1',
-			 	encrypted: true,
-			 	disableStats: true
-			 });
-			 var channel = pusher.subscribe('my-channel');
+			//  var pusher = new Pusher('726f4534d962542caa20', {
+			//  	cluster: 'ap1',
+			//  	encrypted: true,
+			//  	disableStats: true
+			//  });
+			//  var channel = pusher.subscribe('my-channel');
 
-			 channel.bind('my-event', function(data) {
-			 	self.registration.showNotification(data.title, {
-			 		icon: 'https://vinno.vn/sites/default/files/favi_vinno_1.png',
-			 		body: data.message
-			 	});
-			 });
-			});
+			//  channel.bind('my-event', function(data) {
+			//  	self.registration.showNotification(data.title, {
+			//  		icon: 'https://vinno.vn/sites/default/files/favi_vinno_1.png',
+			//  		body: data.message
+			//  	});
+			//  });
+			// });
 
 
 		if (Notification.permission == 'granted') {
