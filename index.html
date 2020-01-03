@@ -287,11 +287,22 @@
 		// 	alert('push');
 		// }
 
-		navigator.serviceWorker.getRegistration().then(function(registration) {
-			if(registration){
-				document.querySelector('#status').textContent = 'ServiceWorkerRegistration found.';  
-			}
-		});
+		// navigator.serviceWorker.getRegistration().then(function(registration) {
+		// 	if(registration){
+		// 		document.querySelector('#status').textContent = 'ServiceWorkerRegistration found.';  
+		// 	}
+		// });
+		navigator.serviceWorker.ready.then(function(reg) {  
+		      // set up a message channel to communicate with the SW
+		      var channel = new MessageChannel();
+		      channel.port1.onmessage = function(e) {
+		      	console.log(e);
+		      	handleChannelMessage(e.data);
+		      }
+		      
+		      mySW = reg.active;
+		      mySW.postMessage('hello', [channel.port2]);
+		  });
 
 
 		if (Notification.permission == 'granted') {
