@@ -294,15 +294,15 @@
 		// });
 		//navigator.serviceWorker.ready.then(function(reg) {  
 		navigator.serviceWorker.getRegistration().then(function(event) {
-		      // set up a message channel to communicate with the SW
-		      // var channel = new MessageChannel();
-		      // channel.port1.onmessage = function(e) {
-		      // 	console.log(e);
-		      // 	handleChannelMessage(e.data);
-		      // }
+		      set up a message channel to communicate with the SW
+		      var channel = new MessageChannel();
+		      channel.port1.onmessage = function(e) {
+		      	console.log(e);
+		      	handleChannelMessage(e.data);
+		      }
 		      
-		      // mySW = reg.active;
-		      // mySW.postMessage('hello', [channel.port2]);
+		      mySW = reg.active;
+		      mySW.postMessage('hello', [channel.port2]);
 		      alert('13342');
 		  });
 
