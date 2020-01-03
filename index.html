@@ -207,9 +207,9 @@
 		<div class="grid-item grid-item--height2"></div>
 		...
 	</div> -->
-<h4 id="kind">
-	aaa
-</h4>
+	<h4 id="status">
+		aaa
+	</h4>
 	<script
 	src="https://code.jquery.com/jquery-3.4.1.min.js"
 	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -309,39 +309,45 @@
 
 
 		if (Notification.permission == 'granted') {
-
-			navigator.serviceWorker.ready.then(function(registration) {
-
-				registration.pushManager.subscribe({
-
-					userVisibleOnly: true,
-
-					applicationServerKey: '726f4534d962542caa20',
-
-				})
-
-				.then(function(subscription) {
-					var channel = pusher.subscribe('my-channel');
-
-					channel.bind('my-event', function(data) {
-						self.registration.showNotification(data.title, {
-							icon: 'https://vinno.vn/sites/default/files/favi_vinno_1.png',
-							body: data.message
-						});
-					});
-			    // The subscription was successful
-
-			    savePushSubscription(subscription);
-
-			})
-
-				.catch(function(e) {
-
-			    //error handling
-
+			navigator.serviceWorker.getRegistration().then(function(registration) {
+				if(registration){
+					document.querySelector('#status').textContent = 'ServiceWorkerRegistration found.';  
+				}
 			});
 
-			});
+
+			// navigator.serviceWorker.ready.then(function(registration) {
+
+			// 	registration.pushManager.subscribe({
+
+			// 		userVisibleOnly: true,
+
+			// 		applicationServerKey: '726f4534d962542caa20',
+
+			// 	})
+
+			// 	.then(function(subscription) {
+			// 		var channel = pusher.subscribe('my-channel');
+
+			// 		channel.bind('my-event', function(data) {
+			// 			self.registration.showNotification(data.title, {
+			// 				icon: 'https://vinno.vn/sites/default/files/favi_vinno_1.png',
+			// 				body: data.message
+			// 			});
+			// 		});
+			//     // The subscription was successful
+
+			//     savePushSubscription(subscription);
+
+			// })
+
+			// 	.catch(function(e) {
+
+			//     //error handling
+
+			// });
+
+			// });
 		// 	navigator.serviceWorker.getRegistration().then(function(event) {
 
 		// 		// event.Push.create(data.name,{
