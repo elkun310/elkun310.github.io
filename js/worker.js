@@ -42,4 +42,3 @@ var channel = pusher.subscribe('my-channel');
 // 		}
 // 	});
 // });
-if(navigator.userAgent.indexOf("Mobile") > -1) { console.log("run service worker code") global.toolbox.router.get("/(.*)", global.toolbox.cacheFirst, { origin: templateServerUrl, cache: { name: buildCacheName("assets") } }); } else { console.log("do nothing") }
