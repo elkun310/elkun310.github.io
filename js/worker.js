@@ -6,12 +6,12 @@ Pusher.setLogger(function(log){
 	console.log(log)
 });
 
-var pusher = new Pusher('726f4534d962542caa20', {
-	cluster: 'ap1',
-	encrypted: true,
-	disableStats: true
-});
-var channel = pusher.subscribe('my-channel');
+// var pusher = new Pusher('726f4534d962542caa20', {
+// 	cluster: 'ap1',
+// 	encrypted: true,
+// 	disableStats: true
+// });
+// var channel = pusher.subscribe('my-channel');
 
 // channel.bind('my-event', function(data) {
 //   self.registration.showNotification(data.title, {
