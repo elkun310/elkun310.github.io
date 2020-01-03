@@ -241,35 +241,7 @@
 			let promise = Notification.requestPermission();
 
 		})
-		// function showNotification() {
-		// 	Notification.requestPermission(function(result) {
-		// 		if (result === 'granted') {
-		// 			navigator.serviceWorker.ready.then(function(registration) {
-		// 				registration.showNotification('Vibration Sample', {
-		// 					body: 'Buzz! Buzz!',
-		// 					icon: '../images/touch/chrome-touch-icon-192x192.png',
-		// 					vibrate: [200, 100, 200, 100, 200, 100, 200],
-		// 					tag: 'vibration-sample'
-		// 				});
-		// 			});
-		// 		}
-		// 	});
-		// }
 		// Use serviceWorker.ready to ensure that you can subscribe for push
-		function urlBase64ToUint8Array(base64String) {
-			var padding = '='.repeat((4 - base64String.length % 4) % 4);
-			var base64 = (base64String + padding)
-			.replace(/\-/g, '+')
-			.replace(/_/g, '/');
-
-			var rawData = window.atob(base64);
-			var outputArray = new Uint8Array(rawData.length);
-
-			for (var i = 0; i < rawData.length; ++i) {
-				outputArray[i] = rawData.charCodeAt(i);
-			}
-			return outputArray;
-		}
 		navigator.serviceWorker.ready.then(
 			function(serviceWorkerRegistration) {
 				var options = {
@@ -281,37 +253,21 @@
 				serviceWorkerRegistration.pushManager.subscribe(options).then(
 					function(pushSubscription) {
 						console.log(pushSubscription.endpoint);
-        // The push subscription details needed by the application
-        // server are now available, and can be sent to it using,
-        // for example, an XMLHttpRequest.
-    }, function(error) {
-        // During development it often helps to log errors to the
-        // console. In a production environment it might make sense to
-        // also report information about errors back to the
-        // application server.
-        console.log(error);
-    }
-    );
-			});
+			        // The push subscription details needed by the application
+			        // server are now available, and can be sent to it using,
+			        // for example, an XMLHttpRequest.
+			    }, function(error) {
+			        // During development it often helps to log errors to the
+			        // console. In a production environment it might make sense to
+			        // also report information about errors back to the
+			        // application server.
+			        console.log(error);
+			    }
+			    );
+		});
 
 
-
-		//navigator.serviceWorker.ready.then(function(reg) {  
-			navigator.serviceWorker.getRegistration().then(function(reg) {
-		      //set up a message channel to communicate with the SW
-		      var channel = new MessageChannel();
-		      channel.port1.onmessage = function(e) {
-		      	console.log(e);
-		      	handleChannelMessage(e.data);
-		      }
-		      
-		      mySW = reg.active;
-		      mySW.postMessage('hello', [channel.port2]);
-		      alert('13342');
-		  });
-
-
-			if (Notification.permission == 'granted') {
+		if (Notification.permission == 'granted') {
 			// navigator.serviceWorker.ready.then(function(registration) {
 
 			// 	registration.pushManager.subscribe({
