@@ -19,15 +19,15 @@
 	</script>
 
 
-	<!-- <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+	<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
 	<script>
 		var OneSignal = window.OneSignal || [];
 		OneSignal.push(function() {
 			OneSignal.init({
-				appId: "ce9ff185-4463-4efa-b002-84d790cef0dd",
+				appId: "33c5adc2-4f0e-45ce-80d4-c81205d8cd7b",
 			});
 		});
-	</script> -->
+	</script>
 
 
 </head>
@@ -265,20 +265,20 @@
 			 //    }
 			 //    );
 
-		 	var pusher = new Pusher('726f4534d962542caa20', {
-				cluster: 'ap1',
-				encrypted: true,
-				disableStats: true
-			});
-			var channel = pusher.subscribe('my-channel');
+			 var pusher = new Pusher('726f4534d962542caa20', {
+			 	cluster: 'ap1',
+			 	encrypted: true,
+			 	disableStats: true
+			 });
+			 var channel = pusher.subscribe('my-channel');
 
-			channel.bind('my-event', function(data) {
-			  self.registration.showNotification(data.title, {
-			    icon: 'https://vinno.vn/sites/default/files/favi_vinno_1.png',
-			    body: data.message
-			  });
+			 channel.bind('my-event', function(data) {
+			 	self.registration.showNotification(data.title, {
+			 		icon: 'https://vinno.vn/sites/default/files/favi_vinno_1.png',
+			 		body: data.message
+			 	});
+			 });
 			});
-		});
 
 
 		if (Notification.permission == 'granted') {
