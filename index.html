@@ -231,20 +231,20 @@
 			    console.log('Registration failed with ' + error);
 			});
 		}
-		function showNotification() {
-			Notification.requestPermission(function(result) {
-				if (result === 'granted') {
-					navigator.serviceWorker.ready.then(function(registration) {
-						registration.showNotification('Vibration Sample', {
-							body: 'Buzz! Buzz!',
-							icon: '../images/touch/chrome-touch-icon-192x192.png',
-							vibrate: [200, 100, 200, 100, 200, 100, 200],
-							tag: 'vibration-sample'
-						});
-					});
-				}
-			});
-		}
+		// function showNotification() {
+		// 	Notification.requestPermission(function(result) {
+		// 		if (result === 'granted') {
+		// 			navigator.serviceWorker.ready.then(function(registration) {
+		// 				registration.showNotification('Vibration Sample', {
+		// 					body: 'Buzz! Buzz!',
+		// 					icon: '../images/touch/chrome-touch-icon-192x192.png',
+		// 					vibrate: [200, 100, 200, 100, 200, 100, 200],
+		// 					tag: 'vibration-sample'
+		// 				});
+		// 			});
+		// 		}
+		// 	});
+		// }
 
 	</script>
 	<script type="text/javascript">
@@ -271,39 +271,66 @@
 		// 	});
 		// 	alert('push');
 		// }
-		if (Notification.permission == 'granted') {
-			navigator.serviceWorker.getRegistration().then(function(event) {
+		navigator.serviceWorker.ready.then(function(registration) {
 
-				// event.Push.create(data.name,{
-				// 	body: data.message,
-				// 	icon: 'images/logo-small.jpg',
-				// 	timeout: 10000,
-				// 	onClick: function () {
-				// 		window.focus();
-				// 		this.close();
-				// 	}
-				// });
-				//event.alert('aaaaaa');
-				var pusher = new Pusher('726f4534d962542caa20', {
-					cluster: 'ap1'
-				});
-				//console.log(pusher);
-				
-				var channel = pusher.subscribe('my-channel');
-				channel.bind('my-event', function(data) {
-					Push.create(data.name,{
-						body: data.message,
-						icon: 'images/logo-small.jpg',
-						timeout: 10000,
-						onClick: function () {
-							window.focus();
-							this.close();
-						}
-					});
-				});
-				//console.log(channel);
+			registration.pushManager.subscribe({
+
+				userVisibleOnly: true,
+
+				applicationServerKey: '726f4534d962542caa20',
+
 			})
-		}
+
+			.then(function(subscription) {
+
+			    // The subscription was successful
+
+			    savePushSubscription(subscription);
+
+			})
+
+			.catch(function(e) {
+
+			    //error handling
+
+			});
+
+		});
+
+
+
+		// if (Notification.permission == 'granted') {
+		// 	navigator.serviceWorker.getRegistration().then(function(event) {
+
+		// 		// event.Push.create(data.name,{
+		// 		// 	body: data.message,
+		// 		// 	icon: 'images/logo-small.jpg',
+		// 		// 	timeout: 10000,
+		// 		// 	onClick: function () {
+		// 		// 		window.focus();
+		// 		// 		this.close();
+		// 		// 	}
+		// 		// });
+
+		// 		var pusher = new Pusher('726f4534d962542caa20', {
+		// 			cluster: 'ap1'
+		// 		});
+
+		// 		var channel = pusher.subscribe('my-channel');
+		// 		channel.bind('my-event', function(data) {
+		// 			Push.create(data.name,{
+		// 				body: data.message,
+		// 				icon: 'images/logo-small.jpg',
+		// 				timeout: 10000,
+		// 				onClick: function () {
+		// 					window.focus();
+		// 					this.close();
+		// 				}
+		// 			});
+		// 		});
+
+		// 	})
+		// }
 	</script>
 	
 
