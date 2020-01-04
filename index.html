@@ -216,6 +216,12 @@
 	crossorigin="anonymous"></script>
 	<script type="text/javascript" src="js/push.js"></script>
 	<script src="https://js.pusher.com/5.0/pusher.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			let promise = Notification.requestPermission();
+
+		})
+	</script>
 <!-- 	<script type="text/javascript">
 		// if ('serviceWorker' in navigator) {
 		// 	navigator.serviceWorker.register('/js/worker.js', { scope: '/js/' }).then(function(reg) {
@@ -237,10 +243,7 @@
 	</script>
 	<script type="text/javascript">
 		//navigator.serviceWorker.register('/js/worker.js');
-		$(document).ready(function(){
-			let promise = Notification.requestPermission();
-
-		})
+		
 		// Use serviceWorker.ready to ensure that you can subscribe for push
 		navigator.serviceWorker.ready.then(
 			function(serviceWorkerRegistration) {
