@@ -154,6 +154,10 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-faded {
 	height: 100px;
 	background: #fff;
 }
+img.avatar{
+	width: 250px;
+    height: 250px;
+}
 
 
 @media(max-width: 576px){
